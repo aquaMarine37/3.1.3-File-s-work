@@ -84,22 +84,23 @@ public class Main {
             new GameProgress(8, 30, 9, 80),
         };
         List<String> allSaves = new ArrayList<>();
-        String savePath = "C:\\Users\\dudko\\Games\\savegames\\";
+        String filePath = "C:\\Users\\dudko\\Games\\savegames\\";
+        String zipFilePath = "C:\\Users\\dudko\\Games\\savegames\\zip.zip";
         for (int i = 0; i < gp.length; i++) {
-            String saveFileName = savePath + "save" + i + ".txt";
+            String saveFileName = filePath  + "save" + i + ".txt";
             saveGame(saveFileName, gp);
             allSaves.add(saveFileName);
         }
-        zipFiles(savePath, allSaves);
+        zipFiles(zipFilePath,  allSaves);
         for (int i =0; i < allSaves.size(); i++) {
-            String saveFileName = savePath + "save" + i + ".txt";
+            String saveFileName = filePath + "save" + i + ".txt";
             File deleteFile = new File(saveFileName);
             if (deleteFile.delete()){
                 System.out.println("Файл " + saveFileName + " удален");
             } else {
                 System.out.println("Файл не удален");
             }
-        }
+       }
     }
 
     public static void wr(StringBuilder sb) {
